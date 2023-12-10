@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.Group
 import com.manucg.guiaexamen2moviles.databinding.ActivityMainBinding
 import com.manucg.guiaexamen2moviles.modelo.Usuario
 import com.manucg.guiaexamen2moviles.ui.Tabs.TabsViewModel
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity(), OnInteractionListener, UsuariosFragmen
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setup()
+
 
         textMain=findViewById(R.id.textMain)
         textMain.text = operacionesVM.numero.toString()
@@ -66,7 +68,7 @@ class MainActivity : AppCompatActivity(), OnInteractionListener, UsuariosFragmen
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_operaciones, R.id.nav_usuarios, R.id.nav_TabsFragment
+                R.id.nav_home, R.id.nav_operaciones, R.id.nav_TabsFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -78,6 +80,14 @@ class MainActivity : AppCompatActivity(), OnInteractionListener, UsuariosFragmen
         when (v.id) {
             R.id.buttonIncremento -> {
                 textMain.text = operacionesVM.numero.toString()
+            }
+            R.id.buttonHidden -> {
+                var botonera = findViewById<Group>(R.id.botonera)
+                if (botonera.visibility == View.GONE){
+                    botonera.visibility = View.VISIBLE
+                } else {
+                    botonera.visibility = View.GONE
+                }
             }
             else -> {}
         }

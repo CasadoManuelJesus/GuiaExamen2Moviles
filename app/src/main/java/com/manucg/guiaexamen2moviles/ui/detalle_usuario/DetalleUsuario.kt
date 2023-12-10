@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.manucg.guiaexamen2moviles.R
+import com.manucg.guiaexamen2moviles.databinding.ContentMainBinding
 import com.manucg.guiaexamen2moviles.databinding.FragmentDetalleUsuarioBinding
 import com.manucg.guiaexamen2moviles.ui.Tabs.TabsViewModel
 

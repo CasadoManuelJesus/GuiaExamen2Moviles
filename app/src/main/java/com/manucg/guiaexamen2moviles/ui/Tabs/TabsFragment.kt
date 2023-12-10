@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.Group
 import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.manucg.guiaexamen2moviles.R
+import com.manucg.guiaexamen2moviles.databinding.ContentMainBinding
 import com.manucg.guiaexamen2moviles.databinding.FragmentTabsBinding
 
 class TabsFragment : Fragment() {
@@ -28,7 +30,6 @@ class TabsFragment : Fragment() {
     ): View? {
         binding = FragmentTabsBinding.inflate(inflater, container, false)
         val root : View = binding!!.root
-
         viewPager2 = binding!!.viewPager2
         viewPagerAdapter = ViewPagerAdapter(this.activity!!)
         viewPager2.adapter = viewPagerAdapter

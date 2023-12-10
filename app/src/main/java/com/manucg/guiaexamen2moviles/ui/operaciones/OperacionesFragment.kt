@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.manucg.guiaexamen2moviles.OnInteractionListener
 import com.manucg.guiaexamen2moviles.R
+import com.manucg.guiaexamen2moviles.databinding.ContentMainBinding
 import com.manucg.guiaexamen2moviles.databinding.FragmentOperacionesBinding
 
 class OperacionesFragment : Fragment() {
@@ -32,7 +33,6 @@ class OperacionesFragment : Fragment() {
 
         binding = FragmentOperacionesBinding.inflate(inflater, container, false)
         val root: View = binding!!.root
-
         val text : TextView = binding!!.textNumero
         text.text = viewModel.numero.toString()
 

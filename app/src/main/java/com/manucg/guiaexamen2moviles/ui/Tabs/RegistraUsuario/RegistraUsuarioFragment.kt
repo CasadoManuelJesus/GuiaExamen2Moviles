@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.manucg.guiaexamen2moviles.databinding.FragmentRegistraUsuarioBinding
 import com.manucg.guiaexamen2moviles.modelo.Usuario
@@ -25,10 +26,14 @@ class RegistraUsuarioFragment : Fragment() {
 
         binding!!.buttonRegistra.setOnClickListener {
             var nombre : String = binding!!.editTextNombre.text.toString()
-            var edad : Int = binding!!.editTextEdad.text.toString().toInt()
+            var edad : Int = binding!!.editTextEdad.text.toString().toIntOrNull() ?: 0
             Log.d("nombre", nombre)
             Log.d("edad", edad.toString())
-            viewModel.bd.addUsuario(Usuario(nombre,edad))
+            if (nombre.isNullOrEmpty() || edad <= 0 || edad == null){
+                Toast.makeText(this.activity, "Error al añadir usuario", Toast.LENGTH_SHORT).show()
+            } else {
+                viewModel.bd.addUsuario(Usuario(nombre,edad))
+            }
         }
 
         return root

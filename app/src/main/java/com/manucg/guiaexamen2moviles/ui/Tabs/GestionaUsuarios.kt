@@ -15,6 +15,7 @@ import androidx.fragment.app.activityViewModels
 import com.manucg.guiaexamen2moviles.OnInteractionListener
 import com.manucg.guiaexamen2moviles.R
 import com.manucg.guiaexamen2moviles.databinding.DialogDeleteBinding
+import com.manucg.guiaexamen2moviles.databinding.DialogUpdateBinding
 import com.manucg.guiaexamen2moviles.databinding.FragmentGestionaUsuariosBinding
 import com.manucg.guiaexamen2moviles.modelo.Usuario
 import com.manucg.guiaexamen2moviles.ui.Tabs.usuarios.UsuariosFragment
@@ -78,14 +79,50 @@ class GestionaUsuarios : Fragment() {
         }
 
         binding!!.buttonUpdate.setOnClickListener {
-            verDialogoUpdate()
+            verDialogoUpdate(this.binding!!)
         }
 
         return root
     }
 
-    private fun verDialogoUpdate() {
-        TODO("Not yet implemented")
+    private fun verDialogoUpdate(bindingGestion: FragmentGestionaUsuariosBinding) {
+        val inflater = getLayoutInflater()
+
+        var binding : DialogUpdateBinding = DialogUpdateBinding.inflate(inflater)
+        val view=binding.root
+        binding.textNombreAntes.text = viewModel.usuarioSeleccionado.nombre
+        binding.textEdadAntes.text = viewModel.usuarioSeleccionado.edad.toString()
+        var nuevoNombre : String
+        var nuevaEdad : Int
+        if (bindingGestion.checkNombre.isChecked){
+            nuevoNombre = bindingGestion.editTextUpdateNombre.text.toString()
+            binding.textNombreDespues.text = nuevoNombre
+        } else {
+            nuevoNombre = viewModel.usuarioSeleccionado.nombre
+            binding.textNombreDespues.text = nuevoNombre
+        }
+
+        if (bindingGestion.checkEdad.isChecked){
+            nuevaEdad = bindingGestion.editTextUpdateEdad.text.toString().toInt()
+            binding.textEdadDespues.text = nuevaEdad.toString()
+        } else {
+            nuevaEdad = viewModel.usuarioSeleccionado.edad
+            binding.textEdadDespues.text = nuevaEdad.toString()
+        }
+
+        val builder = AlertDialog.Builder(this.requireContext())
+            .setView(view)
+            .setTitle("Actualizar usuario")
+            .setPositiveButton("Enviar") { dialog, id ->
+                run {
+                    viewModel.bd.updateUsuario(viewModel.usuarioSeleccionado, Usuario(nuevoNombre, nuevaEdad))
+                    spinnerAdapter.notifyDataSetChanged()
+                    viewModel.recyclerViewAdapter.notifyDataSetChanged()
+                }
+            }
+            .setNegativeButton("Cancelar") { dialog, id -> }
+            .show()
+
     }
 
     private fun verDialogoBorrado() {

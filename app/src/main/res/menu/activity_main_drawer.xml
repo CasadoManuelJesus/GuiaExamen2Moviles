@@ -12,9 +12,6 @@
             android:id="@+id/nav_operaciones"
             android:title="Operaciones" />
         <item
-            android:id="@+id/nav_usuarios"
-            android:title="@string/usuarios" />
-        <item
             android:id="@+id/nav_TabsFragment"
             android:title="Gestión de usuarios" />
     </group>

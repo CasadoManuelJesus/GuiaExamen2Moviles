@@ -79,8 +79,5 @@ class UsuariosFragment : Fragment() {
         fun onListFragmentInteraction(item: Usuario?)
     }
 
-    fun actualizaAdapter() {
-        miAdapter.notifyDataSetChanged()
-    }
 
 }

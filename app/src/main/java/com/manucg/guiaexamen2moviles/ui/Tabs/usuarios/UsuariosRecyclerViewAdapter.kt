@@ -22,7 +22,7 @@ class UsuariosRecyclerViewAdapter(
     // Paso 3: Definir la clase interna ViewHolder para representar cada elemento de la lista
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
         // Paso 4: Declarar los TextView
-        val textoNombre: TextView = mView.findViewById(R.id.textNombre)
+        val textoNombre: TextView = mView.findViewById(R.id.textNombreReg)
         val textoEdad: TextView = mView.findViewById(R.id.textEdad)
 
         // Paso 5: Declarar una variable para la vinculación de datos utilizando View Binding

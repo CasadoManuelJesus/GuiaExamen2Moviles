@@ -27,4 +27,9 @@
         android:name="com.manucg.guiaexamen2moviles.ui.Tabs.TabsFragment"
         android:label="Gestión de usuarios"
         tools:layout="@layout/fragment_tabs" />
+    <fragment
+        android:id="@+id/nav_detalleUsuario"
+        android:name="com.manucg.guiaexamen2moviles.ui.detalle_usuario.DetalleUsuario"
+        android:label="fragment_detalle_usuario"
+        tools:layout="@layout/fragment_detalle_usuario" />
 </navigation>

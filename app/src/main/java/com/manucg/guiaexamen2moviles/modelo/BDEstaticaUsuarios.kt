@@ -19,6 +19,12 @@ class BDEstaticaUsuarios() {
         usuarios.add(usuario)
     }
 
+    fun updateUsuario(usuario : Usuario){
+        var usuarioBuscado = this.usuarios.find { it.nombre == usuario.nombre }
+        var pos = usuarios.indexOf(usuarioBuscado)
+        usuarios.set(pos, usuario)
+    }
+
     fun deleteUsuario(usuario: Usuario) {
         usuarios.remove(usuario)
     }

@@ -17,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.manucg.guiaexamen2moviles.databinding.ActivityMainBinding
 import com.manucg.guiaexamen2moviles.modelo.Usuario
+import com.manucg.guiaexamen2moviles.ui.Tabs.TabsViewModel
 import com.manucg.guiaexamen2moviles.ui.operaciones.OperacionesViewModel
 import com.manucg.guiaexamen2moviles.ui.Tabs.usuarios.UsuariosFragment
 
@@ -84,6 +85,10 @@ class MainActivity : AppCompatActivity(), OnInteractionListener, UsuariosFragmen
 
     override fun onListFragmentInteraction(item: Usuario?) {
         Toast.makeText(this, item.toString(), Toast.LENGTH_SHORT).show()
+        val vm : TabsViewModel by viewModels()
+        vm.nombre = item!!.nombre
+        vm.edad = item!!.edad
+        findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.nav_detalleUsuario)
     }
 
 }

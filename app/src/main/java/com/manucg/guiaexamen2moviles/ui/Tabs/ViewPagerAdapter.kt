@@ -9,7 +9,7 @@ import com.manucg.guiaexamen2moviles.ui.Tabs.usuarios.UsuariosFragment
 class ViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment) {
 
     //Lista de los fragements que vamos a utilizar
-    val list: List<Fragment> = listOf(RegistraUsuarioFragment(), UsuariosFragment())
+    val list: List<Fragment> = listOf(RegistraUsuarioFragment(), UsuariosFragment(), GestionaUsuarios())
 
     override fun getItemCount(): Int = list.size
 
@@ -17,6 +17,7 @@ class ViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragme
         return when (position) {
             0 -> RegistraUsuarioFragment()
             1 -> UsuariosFragment()
+            2 -> GestionaUsuarios()
             else -> throw IllegalArgumentException("Invalid position")
         }
     }

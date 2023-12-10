@@ -38,6 +38,7 @@ class TabsFragment : Fragment() {
                 { tab: TabLayout.Tab?, position: Int ->
                     if (position == 0) tab?.setText("Registrar usuarios")
                     if (position == 1) tab?.setText("Ver usuarios")
+                    if (position == 2) tab?.setText("Gestiona usuarios")
                 })
         ).attach()
 

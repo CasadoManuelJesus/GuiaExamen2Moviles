@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.manucg.guiaexamen2moviles.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_operaciones"
+        android:name="com.manucg.guiaexamen2moviles.ui.operaciones.OperacionesFragment"
+        android:label="Operaciones"
+        tools:layout="@layout/fragment_operaciones" />
+
+    <fragment
+        android:id="@+id/nav_usuarios"
+        android:name="com.manucg.guiaexamen2moviles.ui.Tabs.usuarios.UsuariosFragment"
+        android:label="@string/usuarios"
+        tools:layout="@layout/fragment_usuarios" />
+    <fragment
+        android:id="@+id/nav_TabsFragment"
+        android:name="com.manucg.guiaexamen2moviles.ui.Tabs.TabsFragment"
+        android:label="Gestión de usuarios"
+        tools:layout="@layout/fragment_tabs" />
+</navigation>
